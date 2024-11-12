@@ -15,7 +15,7 @@ static void ARGB_TIM_DMADelayPulseHalfCplt(DMA_HandleTypeDef *hdma);
 
 /**
  * @brief Init timer & prescalers
- * @param none
+ * @param[in] strip
  */
 void ARGB_Init(ARGB_Strip *strip) {
     /* Auto-calculation! */
@@ -45,7 +45,7 @@ void ARGB_Init(ARGB_Strip *strip) {
 
 /**
  * @brief Fill ALL LEDs with (0,0,0)
- * @param none
+ * @param[in] strip
  * @note Update strip after that
  */
 void ARGB_Clear(ARGB_Strip *strip) {
@@ -54,6 +54,7 @@ void ARGB_Clear(ARGB_Strip *strip) {
 
 /**
  * @brief Set GLOBAL LED brightness
+ * @param[in] strip
  * @param[in] br Brightness [0..255]
  */
 void ARGB_SetBrightness(ARGB_Strip *strip, u8_t br) {
@@ -97,6 +98,7 @@ void ARGB_SetRGB(ARGB_Strip *strip, u16_t i, u8_t r, u8_t g, u8_t b) {
 
 /**
  * @brief Fill ALL LEDs with RGB color
+ * @param[in] strip
  * @param[in] r Red component   [0..255]
  * @param[in] g Green component [0..255]
  * @param[in] b Blue component  [0..255]
@@ -110,7 +112,7 @@ void ARGB_FillRGB(ARGB_Strip *strip, u8_t r, u8_t g, u8_t b) {
 
 /**
  * @brief Get current DMA status
- * @param none
+ * @param[in] strip
  * @return #ARGB_STATE enum
  */
 ARGB_STATE ARGB_Ready(ARGB_Strip *strip) {
@@ -119,7 +121,7 @@ ARGB_STATE ARGB_Ready(ARGB_Strip *strip) {
 
 /**
  * @brief Update strip
- * @param none
+ * @param[in] strip
  * @return #ARGB_STATE enum
  */
 ARGB_STATE ARGB_Show(ARGB_Strip *strip) {
@@ -230,10 +232,6 @@ if (HAL_DMA_Start_IT(strip->tim_handle->hdma[ARGB_TIM_DMA_ID], (u32_t) strip->pw
         return ARGB_OK;
     }
 }
-
-/**
- * @addtogroup Private_entities
- * @{ */
 
 /**
  * @brief Private method for gamma correction
