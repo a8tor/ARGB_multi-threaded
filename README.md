@@ -27,5 +27,5 @@ my_strip.rgb_buf = (uint8_t *)malloc(3 * my_strip.num_pixels * sizeof(uint8_t));
 my_strip.pwm_buf = (uint32_t *)malloc(3*8*2 * sizeof(uint32_t));
 ```
 
-set your struct as parent
+3. set your struct as parent
 ```hdma_tim2_ch2_ch4.Parent_strip = &my_strip;```
