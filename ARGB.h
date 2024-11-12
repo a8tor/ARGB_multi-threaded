@@ -1,16 +1,3 @@
-/**
- *******************************************
- * @file    ARGB.h
- * @author  Dmitriy Semenov / Crazy_Geeks
- * @link    https://crazygeeks.ru
- * @version 1.33
- * @date	17-May-2022
- * @brief   Header file for ARGB Driver (Addressable RGB)
- *******************************************
- *
- * @note Repo: https://github.com/Crazy-Geeks/STM32-ARGB-DMA
- * @note RU article: https://crazygeeks.ru/stm32-argb-lib
- */
 
 #ifndef ARGB_H_
 #define ARGB_H_
@@ -69,5 +56,4 @@ ARGB_STATE ARGB_Ready(ARGB_Strip *strip); // Get DMA Ready state
 ARGB_STATE ARGB_Show(ARGB_Strip *strip); // Push data to the strip
 
 
-/// @} @}
 #endif /* ARGB_H_ */
